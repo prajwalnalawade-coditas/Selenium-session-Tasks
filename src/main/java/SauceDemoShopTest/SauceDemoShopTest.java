@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.List;
 import java.time.Duration;
 
@@ -81,9 +84,11 @@ public class SauceDemoShopTest {
         } else {
             System.out.println("Title check   : FAIL");
         }
+
         WebElement element2 = driver.findElement(By.xpath("//h1[text()='Products']"));
         System.out.println("H1 text       : " + element2.getText());
-        List<WebElement> l = driver.findElements(By.cssSelector(".grid-link_title"));
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+        List<WebElement> l = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("a[id^='product'] h3")) );
         System.out.println(l.size());
         for (WebElement p : l) {
             System.out.println(p.getText());
