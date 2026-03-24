@@ -1,0 +1,95 @@
+CREATOR DOCUMENT – SauceDemoShopTest
+====================================================
+
+TASK 1 – Home Page Verification
+
+Element : Site heading (logo image)
+Locator : By.cssSelector("h1 a img")
+Reason  : The logo is inside an anchor within h1. Text is in alt attribute, so getAttribute() is used.
+
+Element : Navigation links (count)
+Locator : By.cssSelector("nav ul li a")
+Reason  : CSS descendant selector targets all anchor tags inside nav list. Used findElements() for count.
+
+
+
+
+TASK 2 – About Us
+
+Element : About Us link (header)
+Locator : By.linkText("About Us")
+Reason  : Link text is visible, stable and unique.
+
+Element : Page heading (About Us)
+Locator : By.xpath("//h1[text()='About Us']")
+Reason  : XPath is used to match exact visible text, which CSS cannot do.
+
+Element : About Us content paragraph
+Locator : By.cssSelector(".wysiwyg p")
+Reason  : Paragraph is inside a container with class 'wysiwyg', making CSS simple and reliable.
+
+
+
+
+TASK 3 – Catalog Page
+
+Element : Catalog link
+Locator : By.linkText("Catalog")
+Reason  : Link text is stable and directly clickable.
+
+Element : Page heading (Products)
+Locator : By.xpath("//h1[text()='Products']")
+Reason  : XPath used to match exact heading text.
+
+Element : Product titles
+Locator : By.cssSelector(".grid-link_title")
+Reason  : Class uniquely identifies product titles, used to fetch list of products.
+
+Element : Sold Out products
+Locator : By.cssSelector("div.sold-out")
+Reason  : Class identifies sold-out product containers.
+
+Element : Grey Jacket product link
+Locator : By.partialLinkText("Grey")
+Reason  : Partial link text used to match dynamic product name.
+
+
+
+
+TASK 4 – Product Detail Page
+
+Element : Grey Jacket product link
+Locator : By.cssSelector("a[href*='grey-jacket']")
+Reason  : Partial attribute match used since full href may vary.
+
+Element : Product price
+Locator : By.cssSelector("#product-price")
+Reason  : ID selector is unique and fastest.
+
+Element : Breadcrumb links
+Locator : By.cssSelector("div[id='breadcrumb'] span a")
+Reason  : Targets anchor tags inside breadcrumb container.
+
+Element : Add to Cart button
+Locator : By.xpath("//input[@id='add']")
+Reason  : XPath used to target element using attribute.
+
+
+
+
+TASK 6 – Header & Cart
+
+Element : Cart link
+Locator : By.partialLinkText("My Cart")
+Reason  : Partial text used because cart count changes dynamically.
+
+Element : Empty cart message
+Locator : By.xpath("//p[contains(text(),'empty')]")
+Reason  : XPath contains() used for partial text matching.
+
+Element : Login link
+Locator : By.linkText("Log In")
+Reason  : Link text is visible and stable.
+
+
+====================================================

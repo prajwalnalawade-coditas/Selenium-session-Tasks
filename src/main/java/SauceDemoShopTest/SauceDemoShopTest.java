@@ -117,8 +117,8 @@ public class SauceDemoShopTest {
 
             List<WebElement> crumbs = driver.findElements(By.cssSelector("div[id='breadcrumb'] span a"));
             System.out.print("Breadcrumb: [");
-            for (int i = 0; i < crumbs.size(); i++) {
-                System.out.print(crumbs.get(i).getText() + (i < crumbs.size() - 1 ? ", " : ""));
+            for (WebElement crumb:crumbs) {
+                System.out.print(crumb.getText() + (crumbs.indexOf(crumb) < crumbs.size() - 1 ? ", " : ""));
             }
             System.out.println("]");
 
